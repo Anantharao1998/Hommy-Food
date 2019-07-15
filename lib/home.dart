@@ -1,6 +1,10 @@
 /*
 
-// DEPENDENCIES: LiterataBook font family and its bold variant.
+// DEPENDENCIES:
+  - LiterataBook font family and its bold variant.
+  - images/nasi_dagang.jpg
+  - images/nasi_daging.jpg
+  - images/nasi_kerabu.jpg
 
 */
 
@@ -121,6 +125,11 @@ class DrawerNav extends StatelessWidget {
 }
 
 class ProductCard extends StatelessWidget {
+  final String id, _image, _title, _seller, _price, _description;
+
+  ProductCard(
+      this.id, this._image, this._title, this._seller, this._price, this._description);
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -128,19 +137,58 @@ class ProductCard extends StatelessWidget {
         children: <Widget>[
           Container(
             margin: EdgeInsets.only(top: 12.0),
-            width: 360.0,
+            width: 380.0,
             height: 160.0,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(15.0),
-                  topRight: Radius.circular(15.0)),
-              color: Colors.green[200],
+                topLeft: Radius.circular(15.0),
+                topRight: Radius.circular(15.0),
+              ),
+              image: DecorationImage(
+                image: ExactAssetImage(_image),
+                fit: BoxFit.cover,
+              ),
             ),
           ),
           Container(
-            width: 360.0,
-            height: 60.0,
-            color: Colors.blue,
+            width: 380.0,
+            padding: EdgeInsets.only(left: 8.0, right: 8.0, bottom: 2.0),
+            color: Colors.teal[100],
+            child: Row(
+              children: <Widget>[
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      _title,
+                      style: TextStyle(fontSize: 18.0),
+                    ),
+                    Text(
+                      _seller,
+                      style: TextStyle(color: Color.fromARGB(172, 0, 0, 0)),
+                    ),
+                  ],
+                ),
+                Expanded(child: Container()),
+                RaisedButton(
+                  onPressed: () {},
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12.0)),
+                  color: Colors.teal,
+                  child: Row(
+                    children: <Widget>[
+                      Icon(Icons.add, color: Colors.white),
+                      Text('Add to cart',
+                          style: TextStyle(color: Colors.white)),
+                      SizedBox(
+                        width: 12.0,
+                      ),
+                      Text(_price, style: TextStyle(color: Colors.white)),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       ),
@@ -153,10 +201,38 @@ class ProductList extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: <Widget>[
-        ProductCard(),
-        ProductCard(),
-        ProductCard(),
-        ProductCard(),
+        ProductCard(
+          '0001',
+          'images/nasi_kerabu.jpg',
+          'Nasi Kerabu',
+          'Kak Senak',
+          "RM17.90",
+          'Very Delicious Fried Rice. 10/10.',
+        ),
+        ProductCard(
+          '0001',
+          'images/nasi_daging.jpg',
+          'Nasi Daging',
+          'Kak Enak',
+          "RM39.90",
+          'Very Delicious Fried Rice. 10/10.',
+        ),
+        ProductCard(
+          '0001',
+          'images/nasi_dagang.jpg',
+          'Nasi Dagang',
+          'Kak Senah',
+          "RM14.90",
+          'Very Delicious Fried Rice. 10/10.',
+        ),
+        ProductCard(
+          '0001',
+          'images/nasi_kerabu.jpg',
+          'Nasi Keselasa',
+          'Kak Benak',
+          "RM7.90",
+          'Very Delicious Fried Rice. 10/10.',
+        ),
       ],
     );
   }
