@@ -5,16 +5,7 @@ import 'package:new_ui/paymentoption.dart';
 class MyCheckout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    /* Widget column = Expanded(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text('Title',style: TextStyle(fontSize:16)),
-          Text('Subtitle'),
-        ],
-      ),
-    ); */
-
+   
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
