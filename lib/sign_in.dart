@@ -20,7 +20,29 @@ class MySignIn extends StatelessWidget {
             height: 16.0,
           ),
           GoogleSignInButton(
-            onPressed: () {},
+            onPressed: () {
+            showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        // return object of type Dialog
+        return AlertDialog(
+          title: new Text("You're signed in"),
+          content: new Text("Welcome Back!"),
+          actions: <Widget>[
+            // usually buttons at the bottom of the dialog
+            new FlatButton(
+              child: new Text("Ok"),
+              onPressed: () {
+               Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context)=> Home())
+            );
+              },
+            ),
+          ],
+        );
+      },
+    );},
           ),
           SizedBox(
             height: 12.0,
