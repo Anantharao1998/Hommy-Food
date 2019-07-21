@@ -15,7 +15,7 @@ class MyCheckout extends StatelessWidget {
         title: Text('Home Food', style: TextStyle(fontFamily: 'LiterataBook')),
         backgroundColor: Colors.teal,
       ),
-      body: ListView(children: <Widget>[
+      body: ListView(children: <Widget>[ //TODO implementation to get data from database
         Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
