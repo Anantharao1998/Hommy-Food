@@ -26,7 +26,7 @@ class MySignUp extends StatelessWidget {
                   style: TextStyle(fontSize: 15, color: Colors.black)),
               Container(
                   padding: const EdgeInsets.all(12.0),
-                  child: TextFormField(
+                  child: TextFormField(    //TODO implemention to get the data from the text field
                       decoration: InputDecoration(
                           labelText: 'Display Name',
                           border: OutlineInputBorder(
